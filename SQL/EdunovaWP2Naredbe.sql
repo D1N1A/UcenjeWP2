@@ -33,6 +33,40 @@ insert into clanovi (grupa,polaznik) values
 
 select * from clanovi;
 
-	
+select * from polaznici;
+
+update polaznici set prezime = 'Edunova'
+where sifra=2;
+
+update polaznici set prezime = 'Božić',
+oib='53805878807' , brojugovora = '25/2023'
+where sifra =2;
+
+select * from polaznici where sifra = 2;
+
+update polaznici set ime = 'Petra'
+where sifra = 2;
+
+update smjerovi set cijena = 1000
+where sifra in (2,3);
 
 
+update smjerovi set cijena = cijena*1.2;
+
+update smjerovi set cijena = cijena*0.8;
+
+update smjerovi set cijena=cijena-15;
+
+update smjerovi set cijena=cijena+15;
+
+update smjerovi set upisnina = cijena*0.1;
+
+update smjerovi set cijena = 1489.52 
+where sifra=2;
+
+insert into smjerovi (naziv)
+values ('Phyton programiranje');
+
+delete from smjerovi where sifra = 4;
+
+delete from polaznici where sifra = 1;

@@ -28,8 +28,8 @@ naziv varchar (255) not null
 
 create table poruka (
 sifra int not null primary key identity(1,1),
-odvjetnik int,
 podrucjerada int not null,
+odvjetnik int,
 predmet varchar (50) not null,
 tekst varchar (255) not null,
 ime varchar (50) not null,
@@ -37,21 +37,19 @@ prezime varchar (50) not null,
 telefon char (14) not null,
 eposta varchar (100),
 statusporuke int not null,
-operater int
 );
 
 create table statusporuke (
 sifra int not null primary key identity(1,1),
 naziv varchar (50),
 boja varchar (10) not null,
-operater int not null,
-poruka int
+
 );
 
 create table operater (
 sifra int not null primary key identity(1,1),
 korisnickoime varchar (50) not null,
-lozinka varchar (50) not null,
+lozinka varchar (240) not null,
 
 );
 
@@ -62,8 +60,4 @@ alter table odvjetnik add foreign key (podrucjerada) references podrucjerada(sif
 
 alter table poruka add foreign key (podrucjerada) references podrucjerada(sifra);
 
-alter table poruka add foreign key (operater) references operater(sifra);
-
-alter table statusporuke add foreign key (operater) references operater(sifra);
-
-alter table statusporuke add foreign key (poruka) references poruka (sifra);
+alter table poruka add foreign key  (statusporuke) references statusporuke (sifra);

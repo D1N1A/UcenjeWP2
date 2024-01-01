@@ -37,8 +37,15 @@ namespace UcenjeCS
 
             Console.WriteLine("********************");
 
-            
+            // Zadatak 4
 
-        }   
+            for (; ; )
+            {
+            if (int i > 100)
+
+            }
+
+
+        }
     }
 }

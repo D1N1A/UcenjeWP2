@@ -86,7 +86,25 @@ namespace WebAPI.Controllers
             for (int i = Min; i < Max; i++)
             {
                 if (i%2 != 0)
+                { 
+                    
+                    continue;
+                }
+                niz[i] = i;
+            }
+
+            return niz;
+        }
+
+        public int[] Niz3(int Min, int Max)
+        {
+
+            int[] niz = new int[Max];
+            for (int i = Min; i < Max; i++)
+            {
+                if (i%2 == 0)
                 {
+
                     continue;
                 }
                 niz[i] = i;

@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("zad2")]
-        public int[] Niz ()
+        public int[] Niz1 ()
         {
             //Ruta vraæa niz s brojevima od 1 do brojevi
             int[] niz = new int[57];
@@ -76,6 +76,24 @@ namespace WebAPI.Controllers
             return suma;
            
         }
-       
+
+        [HttpGet]
+        [Route("zad5")]
+        public int[] Niz2(int Min, int Max)
+        {
+   
+            int[] niz = new int[Max];
+            for (int i = Min; i < Max; i++)
+            {
+                if (i%2 != 0)
+                {
+                    continue;
+                }
+                niz[i] = i;
+            }
+
+            return niz;
+        }
+
     }
 }

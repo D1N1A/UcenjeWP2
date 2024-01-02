@@ -9,8 +9,8 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("zad1")]
-        public int  Zbroj1 ()
-        { 
+        public int Zbroj1()
+        {
 
             int[] niz = new int[100];
 
@@ -26,12 +26,12 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("zad2")]
-        public int[] Niz1 ()
+        public int[] Niz1()
         {
-            //Ruta vraæa niz s brojevima od 1 do brojevi
+
             int[] niz = new int[57];
             for (int i = 0; i < 57; i++)
-            { 
+            {
                 if (i%2 == 0)
                 {
                     continue;
@@ -67,27 +67,27 @@ namespace WebAPI.Controllers
         [Route("zad4")]
         public int Zbroj2(int broj)
         {
-        
+
             int suma = 0;
             for (int i = 1; i<= broj; i++)
             {
                 suma += i;
             }
             return suma;
-           
+
         }
 
         [HttpGet]
         [Route("zad5")]
         public int[] Niz2(int Min, int Max)
         {
-   
+
             int[] niz = new int[Max];
             for (int i = Min; i < Max; i++)
             {
                 if (i%2 != 0)
-                { 
-                    
+                {
+
                     continue;
                 }
                 niz[i] = i;
@@ -96,6 +96,8 @@ namespace WebAPI.Controllers
             return niz;
         }
 
+        [HttpGet]
+        [Route("zad6")]
         public int[] Niz3(int Min, int Max)
         {
 
@@ -113,5 +115,60 @@ namespace WebAPI.Controllers
             return niz;
         }
 
+
+        [HttpGet]
+        [Route("zad7")]
+        public int Zbroj3(int Min, int Max)
+        {
+            int[] niz = new int[Max];
+            int suma = 0;
+            for (int i = Min; i < Max; i++)
+            {
+
+                suma += i; ;
+            }
+
+            return suma-Min;
+        }
+
+        [HttpGet]
+        [Route("zad8")]
+        public int Zbroj4(int Min, int Max)
+        {
+            int[] niz = new int[Max];
+            int suma = 0;
+            for (int i = Min; i < Max; i++)
+            {
+
+                if (i%3 != 0)
+                {
+                    continue;
+                }
+
+                suma += i; ;
+            }
+
+            return suma-Min;
+        }
+
+        [HttpGet]
+        [Route("zad9")]
+        public int Zbroj5 (int Min, int Max)
+        {
+            int[] niz = new int[Max];
+            int suma = 0;
+            for (int i = Min+1; i < Max; i++)
+            {
+
+                if ((i%3 != 0) & (i%5 != 0))
+                {
+                    continue;
+                }
+
+                suma += i; ;
+            }
+
+            return suma;
+        }
     }
 }

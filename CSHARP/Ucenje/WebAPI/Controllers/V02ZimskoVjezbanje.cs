@@ -170,5 +170,22 @@ namespace WebAPI.Controllers
 
             return suma;
         }
+
+        [HttpGet]
+        [Route("zad10")]
+        public int [,] Niz4 (int Prvi, int Drugi)
+        {
+            int[] niz = new int[Prvi,Drugi];
+            
+            for (int i = 1; i < Prvi; i++)
+            {
+                for (int j = 1; j < Drugi; j++)
+                
+
+                return i*j; ;
+            }
+
+            return niz;
+        }
     }
 }

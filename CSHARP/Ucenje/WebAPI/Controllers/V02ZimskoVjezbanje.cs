@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace WebAPI.Controllers
 {
@@ -153,7 +154,7 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("zad9")]
-        public int Zbroj5 (int Min, int Max)
+        public int Zbroj5(int Min, int Max)
         {
             int[] niz = new int[Max];
             int suma = 0;
@@ -173,19 +174,21 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("zad10")]
-        public int [,] Niz4 (int Prvi, int Drugi)
+        public int[,] Niz4(int Prvi, int Drugi)
         {
-            int[] niz = new int[Prvi,Drugi];
-            
+            int[,] niz = new int[Prvi, Drugi];
+
+
             for (int i = 1; i < Prvi; i++)
             {
                 for (int j = 1; j < Drugi; j++)
-                
+                {
+                    continue;
+                }
 
-                return i*j; ;
+                continue;
             }
-
-            return niz;
-        }
+            return niz; 
+        } 
     }
 }

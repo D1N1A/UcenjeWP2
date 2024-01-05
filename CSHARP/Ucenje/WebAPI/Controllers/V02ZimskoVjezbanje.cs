@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace WebAPI.Controllers
@@ -179,16 +180,31 @@ namespace WebAPI.Controllers
             int[,] niz = new int[Prvi, Drugi];
 
 
-            for (int i = 1; i < Prvi; i++)
+            for (int i = 0; i < Prvi; i++)
             {
-                for (int j = 1; j < Drugi; j++)
+                for (int j = 0; j < Drugi; j++)
                 {
-                    continue;
+                    niz[i, j] = i*j;
                 }
 
-                continue;
+                
             }
             return niz; 
-        } 
+        }
+
+        [HttpGet]
+        [Route("zad2")]
+        public int[] Niz5 (int MaxBroj)
+        {
+
+            int[] niz = new int[MaxBroj];
+            for (int i = 1; i < MaxBroj+1; i--)
+            {
+               
+                niz[i] = i;
+            }
+
+            return niz;
+        }
     }
 }

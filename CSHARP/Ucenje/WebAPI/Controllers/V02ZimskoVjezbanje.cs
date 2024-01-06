@@ -206,5 +206,27 @@ namespace WebAPI.Controllers
 
             return niz;
         }
+
+        [HttpGet]
+        [Route("zad12")]
+        public bool Prim(int broj)
+        {
+            if (broj < 2)
+            {
+                return false; 
+            }
+
+            for (int i = 2; i * i <= broj; i++)
+            {
+                if (broj % i == 0)
+                {
+                    return false; 
+                }
+            }
+
+            return true; 
+        }
+
     }
-}
+
+    }

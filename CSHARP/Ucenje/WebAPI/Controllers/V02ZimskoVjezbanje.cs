@@ -193,12 +193,12 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("zad2")]
+        [Route("zad11")]
         public int[] Niz5 (int MaxBroj)
         {
 
             int[] niz = new int[MaxBroj];
-            for (int i = 1; i < MaxBroj+1; i--)
+            for (int i = 1; i < MaxBroj ; i--)
             {
                
                 niz[i] = i;

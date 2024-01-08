@@ -179,33 +179,34 @@ namespace WebAPI.Controllers
         {
             int[,] niz = new int[Prvi, Drugi];
 
-
             for (int i = 0; i < Prvi; i++)
             {
                 for (int j = 0; j < Drugi; j++)
                 {
-                    niz[i, j] = i*j;
+                    niz[i, j] = (i + 1) * (j + 1); 
                 }
-
-                
-            }
-            return niz; 
-        }
-
-        [HttpGet]
-        [Route("zad11")]
-        public int[] Niz5 (int MaxBroj)
-        {
-
-            int[] niz = new int[MaxBroj];
-            for (int i = 1; i < MaxBroj ; i--)
-            {
-               
-                niz[i] = i;
             }
 
             return niz;
         }
+
+
+
+        [HttpGet]
+        [Route("zad11")]
+        public int[] Niz5(int MaxBroj)
+        {
+            int[] niz = new int[MaxBroj];
+
+            for (int i = 0; i < MaxBroj; i++)
+            {
+                niz[i] = i + 1;
+            }
+
+            return niz;
+        }
+
+
 
         [HttpGet]
         [Route("zad12")]
@@ -227,6 +228,45 @@ namespace WebAPI.Controllers
             return true; 
         }
 
+        
+        [Route("zad13")]
+        public int[,] CiklicnaMatrica(int red, int stupac)
+        {
+            int[,] matrica = new int[red, stupac];
+
+            int broj = 1;
+
+            for (int raspon = Math.Min(stupac, red) / 2 - 1; raspon >= 0; raspon--)
+            {
+              
+                for (int i = stupac - raspon - 1; i >= raspon; i--)
+                {
+                    matrica[red - raspon - 1, i] = broj++;
+                }
+
+             
+                for (int i = red - raspon - 2; i > raspon; i--)
+                {
+                    matrica[i, stupac - raspon - 1] = broj++;
+                }
+
+              
+                for (int i = raspon; i < stupac - raspon; i++)
+                {
+                    matrica[raspon, i] = broj++;
+                }
+
+               
+                for (int i = red - raspon - 2; i > raspon; i--)
+                {
+                    matrica[i, raspon] = broj++;
+                }
+            }
+
+            return matrica;
+        }
+
     }
+
 
     }

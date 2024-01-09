@@ -39,10 +39,26 @@ namespace UcenjeCS
 
             // Zadatak 4
 
-            for (; ; )
-            {
-            if (int i > 100)
 
+
+            Console.WriteLine("Program broji pokušaje dok se ne upiše broj 100");
+            int broj;
+            for (int pokusaj = 1; ;)
+            {
+                Console.Write("Unesite broj veći od 100 ");
+                broj = int.Parse(Console.ReadLine());
+                if (broj < 101)
+                {
+                    pokusaj++;
+                    Console.WriteLine("Unjeli ste broj koji je manji od 100");
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("Trebalo Vam je " + pokusaj + "da biste unjeli broj " + broj);
+                    broj = 1;
+                }
+                continue;
             }
 
 

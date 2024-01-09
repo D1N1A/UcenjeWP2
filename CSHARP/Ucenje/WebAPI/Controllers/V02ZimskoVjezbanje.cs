@@ -228,7 +228,7 @@ namespace WebAPI.Controllers
             return true; 
         }
 
-        
+        [HttpGet]
         [Route("zad13")]
         public int[,] CiklicnaMatrica(int red, int stupac)
         {
@@ -236,7 +236,9 @@ namespace WebAPI.Controllers
 
             int broj = 1;
 
-            for (int raspon = Math.Min(stupac, red) / 2 - 1; raspon >= 0; raspon--)
+            int manjiBroj = (red < stupac) ? red : stupac;
+
+            for (int raspon = manjiBroj / 2 - 1; raspon >= 0; raspon--)
             {
               
                 for (int i = stupac - raspon - 1; i >= raspon; i--)

@@ -15,4 +15,11 @@ using UcenjeCS;
 
 //E07DoWhile.Izvedi();
 
-E08ForEach.Izvedi();
+//E08ForEach.Izvedi();
+
+//E09Metode.Izvedi();
+
+Console.WriteLine(Z01Metode.CijeliBroj(2.7f,3.7f));
+
+
+

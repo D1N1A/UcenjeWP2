@@ -19,7 +19,14 @@ using UcenjeCS;
 
 //E09Metode.Izvedi();
 
-Console.WriteLine(Z01Metode.CijeliBroj(2.7f,3.7f));
+//Console.WriteLine(Z01Metode.CijeliBroj(2.7f,3.7f));
+
+//E10ObradaIznimki.Izvedi();
+
+//E11Rekurzija.Izvedi();
+
+
+Z02Vjezba.Izvedi();
 
 
 

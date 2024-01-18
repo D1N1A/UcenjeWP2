@@ -29,11 +29,24 @@ namespace UcenjeCS
 
         private static void Prosjek(int pb, int db)
         {
-           for (int i = 0; i <= pb; i++) 
+            int sum = 0;
+            int brojac = 0;
+
+            for (int i = NajmanjiBroj + 1; i < NajveciBroj; i++)
             {
-                Console.WriteLine(i);
+                sum += i;
+                brojac++;
             }
+
+          
+            if (brojac == 0)
+            {
+                return 0;
+            }
+
+            return (double)sum / brojac;
         }
+    }
 
         private static void NajveciBroj(int pb, int db)
         {
@@ -63,31 +76,31 @@ namespace UcenjeCS
 
         private static void Suma(int pb, int db)
         {
-            for (int i = 0; i <= pb; i++)
-            {
+            int sum = 0;
 
+
+            for (int i = NajmanjiBroj + 1; i < NajveciBroj; i++)
+            {
+                sum += i;
             }
-         
+
+            return sum;
         }
+    
 
         private static int UcitajBroj(string v)
         {
-            for (; ; )
-            {
-                Console.Write(v);
-                try
-                {
-                    return int.Parse(Console.ReadLine());
-
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Nisi unio broj");
-                }
-       
-            }
+    for (; ; )
+    {
+        Console.Write(v);
+        try
+        {
+            return int.Parse(Console.ReadLine());
 
         }
-    }
+        catch (FormatException)
+        {
+            Console.WriteLine("Nisi unio broj");
+        }
 
-}
+    }

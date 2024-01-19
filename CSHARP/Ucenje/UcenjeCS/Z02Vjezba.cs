@@ -1,106 +1,80 @@
-﻿
-using System.Diagnostics.Metrics;
+﻿using System;
 
 namespace UcenjeCS
 {
     internal class Z02Vjezba
-
     {
-        // Program učitava brojeve sve dok se ne unese broj -1
-        //Program ispisuje:
-        //1.Zbroj unesenih brojeva
-        //2.Najmanji broj
-        //3.Najveći broj
-        //4.Prosjek svih unesenih brojeva
-
-        //KORISTITI METODE I OBRADU IZNIMKI
-
         public static void Izvedi()
         {
             int pb = UcitajBroj("Unesi prvi broj: ");
             int db = UcitajBroj("Daj mi i drugi: ");
 
+            int suma = Suma(pb, db);
+            int najmanji = NajmanjiBroj(pb, db);
+            int najveci = NajveciBroj(pb, db);
+            double prosjek = Prosjek(pb, db);
 
-            Suma(pb, db);
-            NajmanjiBroj(pb, db);
-            NajveciBroj(pb, db);
-            Prosjek(pb, db);
+            Console.WriteLine($"Zbroj: {suma}");
+            Console.WriteLine($"Najmanji: {najmanji}");
+            Console.WriteLine($"Najveći: {najveci}");
+            Console.WriteLine($"Prosjek: {prosjek}");
         }
 
-        private static void Prosjek(int pb, int db)
+        private static double Prosjek(int pb, int db)
         {
-            int sum = 0;
+            int suma = 0;
             int brojac = 0;
 
-            for (int i = NajmanjiBroj + 1; i < NajveciBroj; i++)
+            for (int i = Math.Min(pb, db) + 1; i < Math.Max(pb, db); i++)
             {
-                sum += i;
+                suma += i;
                 brojac++;
             }
 
-          
             if (brojac == 0)
             {
                 return 0;
             }
 
-            return (double)sum / brojac;
-        }
-    }
-
-        private static void NajveciBroj(int pb, int db)
-        {
-         
-                if (pb>=db)
-                {
-                    Console.WriteLine(pb);
-                }
-                else
-                {
-                    Console.WriteLine(db);
-                }
-            
-            }
-
-        private static void NajmanjiBroj(int pb, int db)
-        {
-            if (pb<=db)
-            {
-                Console.WriteLine(pb);
-            }
-            else
-            {
-                Console.WriteLine(db);
-            }
+            return (double)suma / brojac;
         }
 
-        private static void Suma(int pb, int db)
+        private static int NajveciBroj(int pb, int db)
         {
-            int sum = 0;
+            return Math.Max(pb, db);
+        }
 
+        private static int NajmanjiBroj(int pb, int db)
+        {
+            return Math.Min(pb, db);
+        }
 
-            for (int i = NajmanjiBroj + 1; i < NajveciBroj; i++)
+        private static int Suma(int pb, int db)
+        {
+            int suma = 0;
+
+            for (int i = Math.Min(pb, db) + 1; i < Math.Max(pb, db); i++)
             {
-                sum += i;
+                suma += i;
             }
 
-            return sum;
+            return suma;
         }
-    
 
         private static int UcitajBroj(string v)
         {
-    for (; ; )
-    {
-        Console.Write(v);
-        try
-        {
-            return int.Parse(Console.ReadLine());
-
+            for (; ; )
+            {
+                Console.Write(v);
+                try
+                {
+                    return int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Nisi unio broj");
+                }
+            }
         }
-        catch (FormatException)
-        {
-            Console.WriteLine("Nisi unio broj");
-        }
-
     }
+}

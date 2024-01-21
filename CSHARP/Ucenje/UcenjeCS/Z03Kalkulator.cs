@@ -1,5 +1,4 @@
-﻿
-namespace UcenjeCS
+﻿namespace UcenjeCS
 {
     internal class Z03Kalkulator
     {
@@ -11,11 +10,10 @@ namespace UcenjeCS
             Console.WriteLine("Unesi drugo ime: ");
             string Ime2 = Console.ReadLine();
 
-            int[] Slova = BrojSlova (Ime1, Ime2);
+            int[] Slova = BrojSlova(Ime1, Ime2);
 
-            Rezultat(Slova);
+            Izracun(Slova, Ime1, Ime2);
         }
-
 
         static int[] BrojSlova(string Ime1, string Ime2)
         {
@@ -40,11 +38,11 @@ namespace UcenjeCS
             return Slova;
         }
 
-        static void Izracun(int[] Slova)
+        static void Izracun(int[] Slova, string Ime1, string Ime2)
         {
-            Console.WriteLine(string.Join(",", BrojSlova));
+            Console.WriteLine(string.Join(",", Slova));
 
-            char[] JedinstvenaSlova = new char[BrojSlova.Length];
+            char[] JedinstvenaSlova = new char[Slova.Length];
             bool postoji;
             int index = 0;
 
@@ -52,7 +50,7 @@ namespace UcenjeCS
             {
                 postoji = false;
 
-                foreach (char cc in JedinstvenaSlova   )
+                foreach (char cc in JedinstvenaSlova)
                 {
                     if (c == cc)
                     {
@@ -67,25 +65,15 @@ namespace UcenjeCS
                 }
             }
 
-            Console.WriteLine("Unique letters: " + new string(uniqueLetters));
+            Console.WriteLine("Jedinstvena slova: " + new string(JedinstvenaSlova));
 
-            int Izracun = BrojSlova(JedinstvenaSlova, Slova);
-            Console.WriteLine("Rezultat je: " + Izracun);
+            double Rezultat = KonacanRezultat(Slova.Sum(), JedinstvenaSlova.Length);
+            Console.WriteLine("Rezultat je: " + Rezultat + "%");
         }
 
-        static int Rezultat (char[] JedinstvenaSlova, int[] BrojSlova)
+        static double KonacanRezultat(int BrojSlova, int JedinstvenaSlova)
         {
-            int VelicinaIzracuna = 0;
-
-            foreach (int Broj in JedinstvenaSlova)
-            {
-                VelicinaIzracuna += Broj;
-            }
-
-            string kalkulator = "kalkulator";
-            int index = (VelicinaIzracuna % kalkulator.Length) - 1;
-
-            return index;
+            return ((double)JedinstvenaSlova / BrojSlova) * 100;
         }
     }
 }

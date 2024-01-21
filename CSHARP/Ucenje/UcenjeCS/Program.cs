@@ -25,8 +25,9 @@ using UcenjeCS;
 
 //E11Rekurzija.Izvedi();
 
+//Z02Vjezba.Izvedi();
 
-Z02Vjezba.Izvedi();
+Z03Kalkulator.Izvedi();
 
 
 

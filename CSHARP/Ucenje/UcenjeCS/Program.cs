@@ -27,7 +27,9 @@ using UcenjeCS;
 
 //Z02Vjezba.Izvedi();
 
-Z03Kalkulator.Izvedi();
+//Z03Kalkulator.Izvedi();
+
+UcenjeCS.E12KlasaObjekt.Program.Izvedi();
 
 
 

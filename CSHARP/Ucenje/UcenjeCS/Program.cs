@@ -29,7 +29,9 @@ using UcenjeCS;
 
 //Z03Kalkulator.Izvedi();
 
-UcenjeCS.E12KlasaObjekt.Program.Izvedi();
+//UcenjeCS.E12KlasaObjekt.Program.Izvedi();
+
+UcenjeCS.E13Nasljedivanje.Program.Izvedi();
 
 
 

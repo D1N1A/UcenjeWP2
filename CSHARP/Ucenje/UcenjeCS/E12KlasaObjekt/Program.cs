@@ -10,15 +10,38 @@ namespace UcenjeCS.E12KlasaObjekt
     {
         public static void Izvedi ()
         {
-            //  Najčešći način deklaracije
-            // umjesto Osoba osoba = new Osoba();
-            Osoba osoba = new ();
+            Osoba o = new Osoba ();
 
-            var pjevac = new Osoba();
+            Grad g = new()
+            {
+                //Naziv = "Osijek",
+                BrojStanovnika = 100000
+            };
 
-            // pjevac.Ime= "Mirko";
-            Console.WriteLine(pjevac.Ime?.Substring(0,1));
+            o.Grad = g;
 
+            Console.Write(g.Naziv);
+
+            // kako ću na instanci klase Oba ispisati Osijek
+            Console.WriteLine(o.Grad?.Naziv);
+
+      
+        }
+
+        private static string Unos (string poruka)
+        {
+            string unos;
+            while (true)
+            {
+                Console.Write(poruka);
+                unos = Console.ReadLine();
+                if (unos.Trim().Length == 0)
+                {
+                    Console.WriteLine("Unos obavezam");
+                    continue;
+                }
+                return unos;
+            }
 
         }
 
@@ -47,5 +70,35 @@ namespace UcenjeCS.E12KlasaObjekt
 
         }
 
-    }
+        private static void E03Najcesce ()
+        {
+            //  Najčešći način deklaracije
+            // umjesto Osoba osoba = new Osoba();
+            Osoba osoba = new();
+
+            var pjevac = new Osoba();
+
+            // pjevac.Ime= "Mirko";
+            Console.WriteLine(pjevac.Ime?.Substring(0, 1));
+
+
+
+        }
+
+       private static void E04Kalkuator ()
+        {
+            Kalkulator kalkulator = new (); // s new se poziva konstruktor
+            //Console.Write("Unesi ime prve osobe: ");
+            //Kalkulator.PrvoIme = Console.ReadLine();
+
+            kalkulator.PrvoIme = Unos("Unesi ime prve osobe: ");
+        kalkulator.DrugoIme = Unos("Unesi ime druge osobe: ");
+
+        Console.WriteLine(kalkulator.Rezultat());
+
+            Console.WriteLine(new Kalkulator(Unos("PI"),Unos("DI")).Rezultat());
+
+        }
+
+}
 }

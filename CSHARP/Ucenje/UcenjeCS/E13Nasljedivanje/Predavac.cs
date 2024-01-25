@@ -9,5 +9,6 @@ namespace UcenjeCS.E13Nasljedivanje
 
         public string Iban { get; set; }
 
-    
+
+    }
 }

@@ -34,7 +34,7 @@ namespace UcenjeCS.E13Nasljedivanje
 
         public override string ToString()
         {
-            return new StringBuilder(base.ToString()).Append(' , ').Append(BrojUgovora).ToString();
+            return new StringBuilder(base.ToString()).Append(" , ").Append(BrojUgovora).ToString();
         }
 
 

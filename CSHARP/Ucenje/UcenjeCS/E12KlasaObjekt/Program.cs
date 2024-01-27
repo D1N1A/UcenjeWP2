@@ -10,22 +10,22 @@ namespace UcenjeCS.E12KlasaObjekt
     {
         public static void Izvedi ()
         {
-            Osoba o = new Osoba ();
+            //Osoba o = new Osoba ();
 
-            Grad g = new()
-            {
-                //Naziv = "Osijek",
-                BrojStanovnika = 100000
-            };
+            //Grad g = new()
+            //{
+            //    //Naziv = "Osijek",
+            //    BrojStanovnika = 100000
+            //};
 
-            o.Grad = g;
+            //o.Grad = g;
 
-            Console.Write(g.Naziv);
+            //Console.Write(g.Naziv);
 
-            // kako ću na instanci klase Oba ispisati Osijek
-            Console.WriteLine(o.Grad?.Naziv);
+            //// kako ću na instanci klase Oba ispisati Osijek
+            //Console.WriteLine(o.Grad?.Naziv);
 
-      
+            E04Kalkuator();
         }
 
         private static string Unos (string poruka)
@@ -96,7 +96,7 @@ namespace UcenjeCS.E12KlasaObjekt
 
         Console.WriteLine(kalkulator.Rezultat());
 
-            Console.WriteLine(new Kalkulator(Unos("PI"),Unos("DI")).Rezultat());
+         //   Console.WriteLine(new Kalkulator(Unos("PI"),Unos("DI")).Rezultat());
 
         }
 

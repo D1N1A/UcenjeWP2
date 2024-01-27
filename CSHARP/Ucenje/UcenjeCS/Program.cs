@@ -29,13 +29,13 @@ using UcenjeCS;
 
 //Z03Kalkulator.Izvedi();
 
-//UcenjeCS.E12KlasaObjekt.Program.Izvedi();
+UcenjeCS.E12KlasaObjekt.Program.Izvedi();
 
 //UcenjeCS.E13Nasljedivanje.Program.Izvedi();
 
 //UcenjeCS.E14Polimorfizam.Program.Izvedi();
 
-new UcenjeCS.E15KonzolnaAplikacija.Program(); 
+//new UcenjeCS.E15KonzolnaAplikacija.Program(); 
 //nije više statična metoda na klasi nego radim novu instancu klase a to je objekt koji nije ničem dodijeljen
 
 

@@ -1,40 +1,116 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+
 namespace UcenjeCS.E12KlasaObjekt
 {
     internal class Kalkulator
     {
-        public string PrvoIme { get; set; }
+        private List<int> rezultat;
+        private int indeksRezultata = 0;
 
+        public string PrvoIme { get; set; }
         public string DrugoIme { get; set; }
 
-        // Ovo je kontruktor - 5. vrsta metoda
-        public Kalkulator() { 
-        // ovdje se dolazi kada se izvodi ključna riječ new
-        }
-
-        public Kalkulator(string prvoIme, string drugoIme) {
-        
+        public Kalkulator() { // prazan konstruktor
+                              //ovdje se dolazi kada se izvodi ključna riječ new
+                              }
+            public Kalkulator(string prvoIme, string drugoIme)
+        {
             this.PrvoIme = prvoIme;
-            drugoIme = drugoIme;
+            this.DrugoIme = drugoIme;
         }
 
         public string Rezultat()
-        { 
-            return Izracunaj (SlovaUniz(PrvoIme+DrugoIme)) + " %";
+        {
+            return Izracunaj(SlovaUNiz(PrvoIme + DrugoIme)) + " %";
         }
 
-        private int Izracunaj (int[] brojevi)
+        private int Izracunaj(List<int> brojevi)
         {
+            if (brojevi.Count < 3)
+            {
+                return ZavrsniNiz(brojevi);
+            }
 
-            //ovo je sad fiksno, tu dolazi rekurzivni algoritam
-            return 67;
+            List<int> zbrojevi = new List<int>(brojevi.Count / 2 + brojevi.Count % 2);
+            int indeks = 0;
+
+            for (int i = 0; i < (brojevi.Count + 1) / 2; i++)
+            {
+                int zbroj = brojevi[i] + brojevi[brojevi.Count - 1 - i];
+
+                if (i >= (brojevi.Count - 1) / 2 && brojevi.Count % 2 != 0)
+                {
+                    zbrojevi.Add(brojevi[i]);
+                }
+                else
+                {
+                    zbrojevi.Add(zbroj);
+                }
+            }
+
+            var pretvorenoUDvaznamenkasti = PretvoriListu(zbrojevi);
+
+            return Izracunaj(PretvoriListu(zbrojevi));
         }
 
-        private int[] SlovaUniz (string Imena)
+        private List<int> PretvoriListu(List<int> brojevi)
         {
-            // fiksno 
+            List<int> rezultat = new List<int>(brojevi.Count * 2);
+            int indeks = 0;
 
-            return new int[2];
+            foreach (int num in brojevi)
+            {
+                if (num < 10)
+                {
+                    rezultat.Add(num);
+                }
+                else
+                {
+                    int desetice = num / 10;
+                    int jedinice = num % 10;
+
+                    rezultat.Add(desetice);
+                    rezultat.Add(jedinice);
+                }
+            }
+
+
+            return rezultat;
+        }
+
+        private int ZavrsniNiz(List<int> niz)
+        {
+            string stringNiz = string.Join("", niz);
+
+            int rezultat = int.Parse(stringNiz);
+
+ 
+
+            return rezultat;
+        }
+
+        private List<int> SlovaUNiz(string imena)
+        {
+            int indeks = 0;
+            List<int> brojevi = new List<int>(imena.Length);
+
+            foreach (char c in imena)
+            {
+                int ukupno = 0;
+
+                foreach (char cc in imena)
+                {
+                    if (c == cc)
+                    {
+                        ukupno++;
+                    }
+                }
+
+                brojevi.Add(ukupno);
+            }
+
+            return brojevi;
         }
     }
 }

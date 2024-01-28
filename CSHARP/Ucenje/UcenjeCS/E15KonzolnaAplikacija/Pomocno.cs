@@ -6,24 +6,40 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS.E15KonzolnaAplikacija
 {
-    //engl. Utility ili Util
     internal class Pomocno
     {
-        //kod statične metode klasa ne čuva stanje
-        //inače klasa ima metode i čuva stanja
+        public static int UcitajInt(string poruka)
+        {
+            for (; ; )
+            {
+                Console.Write(poruka);
+                try
+                {
+                    return int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
 
-        public static string UcitajString(string poruka) {
+            }
+
+        }
+        public static string UcitajString(string poruka)
+        {
+            string s;
             while (true)
             {
-                Console.WriteLine(poruka);
-                string s = Console.ReadLine();
-                if(s.Trim().Length == 0)
+                Console.Write(poruka);
+                s = Console.ReadLine();
+                if (s.Trim().Length == 0)
                 {
-                    Console.Write("Obavezan unos");
+                    Console.WriteLine("Obavezan unos");
                     continue;
                 }
                 return s;
             }
         }
+
     }
 }

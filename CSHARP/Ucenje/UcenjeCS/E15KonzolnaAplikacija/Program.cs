@@ -119,6 +119,7 @@ namespace UcenjeCS.E15KonzolnaAplikacija
             var s = Smjerovi[Pomocno.UcitajInt("Odaberi smjer za promjenu: ") - 1];
             s.Sifra = Pomocno.UcitajInt(s.Sifra +  ", Unesi promjenjenu šifru: ");
             s.Naziv = Pomocno.UcitajString(s.Naziv +", Unesi promjenjeni naziv: ");
+            Console.WriteLine("***********************************");
             // promjeniti ostale vrijednosti
             IzbornikRadSaSmjerovima();
 
@@ -130,7 +131,7 @@ namespace UcenjeCS.E15KonzolnaAplikacija
             Smjerovi.ForEach(s => {
                 Console.WriteLine(++i + ". " + s);
             });
-            Console.WriteLine("*********************");
+            Console.WriteLine("***********************************");
 
         }
 
@@ -141,6 +142,7 @@ namespace UcenjeCS.E15KonzolnaAplikacija
                 Sifra = Pomocno.UcitajInt("Unesi šifru smjera: "),
                 Naziv = Pomocno.UcitajString("Unesi naziv smjera: ")
             });
+            Console.WriteLine("***********************************");
             IzbornikRadSaSmjerovima();
         }
     }

@@ -15,16 +15,26 @@ namespace UcenjeCS.E15KonzolnaAplikacija
                 Console.Write(poruka);
                 try
                 {
-                    return int.Parse(Console.ReadLine());
+                    int unos = int.Parse(Console.ReadLine());
+
+                    if (unos >= 0)
+                    {
+                        return unos;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unesite pozitivan broj.");
+                    }
                 }
                 catch
                 {
-                    Console.WriteLine("Neispravan unos");
+                    Console.WriteLine("Neispravan unos. Unesite pozitivan broj.");
                 }
-
             }
 
         }
+
+        
         public static string UcitajString(string poruka)
         {
             string s;
@@ -38,6 +48,38 @@ namespace UcenjeCS.E15KonzolnaAplikacija
                     continue;
                 }
                 return s;
+            }
+        }
+
+        public static bool UcitajBool(string poruka)
+        {
+            for (; ; )
+            {
+                Console.Write(poruka);
+                try
+                {
+                    return bool.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos. Molimo unesite 'istina' ili 'neistina'.");
+                }
+            }
+        }
+
+        public static DateTime UcitajDateTime(string poruka)
+        {
+            for (; ; )
+            {
+                Console.Write(poruka);
+                try
+                {
+                    return DateTime.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos. Molimo unesite datum u ispravnom formatu.");
+                }
             }
         }
 

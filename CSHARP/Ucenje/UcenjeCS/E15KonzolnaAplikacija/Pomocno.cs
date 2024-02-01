@@ -1,87 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UcenjeCS.E15KonzolnaAplikacija
+﻿namespace UcenjeCS.E15KonzolnaAplikacija
 {
     internal class Pomocno
     {
-        public static int UcitajInt(string poruka)
+        public static bool dev;
+        public static int ucitajBrojRaspon(string poruka, string greska, 
+            int poc, int kraj)
         {
-            for (; ; )
-            {
-                Console.Write(poruka);
-                try
-                {
-                    int unos = int.Parse(Console.ReadLine());
-
-                    if (unos >= 0)
-                    {
-                        return unos;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Unesite pozitivan broj.");
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine("Neispravan unos. Unesite pozitivan broj.");
-                }
-            }
-
-        }
-
-        
-        public static string UcitajString(string poruka)
-        {
-            string s;
+            int b;
             while (true)
             {
                 Console.Write(poruka);
+                try
+                {
+                    b = int.Parse(Console.ReadLine());
+                    if(b>=poc && b<=kraj)
+                    {
+                        return b;
+                    }
+                    Console.WriteLine(greska);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(greska);
+                }
+            }
+        }
+
+        internal static int ucitajCijeliBroj(string poruka, string greska)
+        {
+            int b;
+            while(true)
+            {
+                Console.Write(poruka);
+                try
+                {
+                    b = int.Parse(Console.ReadLine());
+                    if (b > 0)
+                    {
+                        return b;
+                    }
+                    Console.WriteLine(greska);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(greska);
+                }
+            }
+        }
+
+        internal static decimal ucitajDecimalniBroj(string poruka, string greska)
+        {
+            decimal b;
+            while (true)
+            {
+                Console.Write(poruka);
+                try
+                {
+                    b = decimal.Parse(Console.ReadLine());
+                    if (b > 0)
+                    {
+                        return b;
+                    }
+                    Console.WriteLine(greska);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(greska);
+                }
+            }
+        }
+
+        internal static bool ucitajBool(string poruka)
+        {
+            Console.Write(poruka);
+            return Console.ReadLine().Trim().ToLower().Equals("da") ? true : false;
+        }
+
+        internal static string UcitajString(string poruka, string greska)
+        {
+            string s = "";
+            while(true)
+            {
+                Console.Write(poruka);
                 s = Console.ReadLine();
-                if (s.Trim().Length == 0)
+                if (s!=null && s.Trim().Length > 0)
                 {
-                    Console.WriteLine("Obavezan unos");
-                    continue;
+                    return s;
                 }
-                return s;
+                Console.WriteLine(greska);
             }
         }
 
-        public static bool UcitajBool(string poruka)
+        internal static DateTime ucitajDatum(string v1, string v2)
         {
-            for (; ; )
+            while(true)
             {
-                Console.Write(poruka);
                 try
                 {
-                    return bool.Parse(Console.ReadLine());
-                }
-                catch
-                {
-                    Console.WriteLine("Neispravan unos. Molimo unesite 'istina' ili 'neistina'.");
-                }
-            }
-        }
-
-        public static DateTime UcitajDateTime(string poruka)
-        {
-            for (; ; )
-            {
-                Console.Write(poruka);
-                try
-                {
+                    Console.WriteLine(v1);
                     return DateTime.Parse(Console.ReadLine());
-                }
-                catch
+                }catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan unos. Molimo unesite datum u ispravnom formatu.");
+                    Console.WriteLine(v2);
                 }
             }
         }
-
     }
 }

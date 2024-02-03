@@ -13,9 +13,11 @@ namespace UcenjeCS.V02KonzolnaAplikacija.Model
         public string Fotografija { get; set; }
         public  string Adresa { get; set; }
 
+        public List <Usluga> Usluge { get; set; }
+
         public override string ToString()
         {
-            return Ime + " " + Prezime ();
+            return Ime + " " + Prezime ;
         }
 
     }

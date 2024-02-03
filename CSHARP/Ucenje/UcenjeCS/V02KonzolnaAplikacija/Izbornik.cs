@@ -9,11 +9,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
 {
     internal class Izbornik
     {
-
-        private List<Klijent> Klijenti;
-        private List<PruzateljUsluge> PruzateljiUsluga;
-        private List<StatusRezervacije> StatusiRezervacija;
-
+        public object ObradaUsluga { get; internal set; }
 
         public Izbornik ()
         {
@@ -74,10 +70,6 @@ namespace UcenjeCS.V02KonzolnaAplikacija
          
         }
 
-        private void IzbornikRadSaStatusimaRezervacije()
-        {
-            throw new NotImplementedException();
-        }
 
         private void IzbornikRadSPruzateljimaUsluga()
         {
@@ -91,46 +83,9 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             OdabirStavkeIzbornikPruzateljaUsluge();
         }
 
-        private void OdabirStavkeIzbornikPruzateljaUsluge()
-        {
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            Console.WriteLine("*.*.*.*.*.*.*.*IZBORNIK - RAD S PRUŽATELJIMA USLUGA*.*.**.*.*.*.*.*");
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            switch (V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.Odaberi stavku izbornika:  .*.*.*.*.*.*.*.*.*.*.--->"))
-            {
-                case 1:
-                    Console.WriteLine("------------>1 ->Prikaži sve pružatelje usluga<--------------------"); ;
-                    PrikaziSvePruzateljeUsluga();
-                    IzbornikRadSPruzateljimaUsluga();
-                    break;
-                case 2:
-                    Console.WriteLine("------------>2 ->Dodaj pružatelja usluge<--------------------------");
-                    DodajNovogPruzateljaUsluga();
-                    break;
-                case 3:
-                    Console.WriteLine("------------>3 ->Uredi pružatelja usluge<--------------------------");
-                    UrediPruzateljaUsluge();
-                    break;
-                case 4:
-                    Console.WriteLine("------------>4 ->Izbriši pružatelja usluge<------------------------");
-                    IzbrisiPruzateljaUsluge();
-                    break;
-                case 5:
-                    Izbornik();
-                    break;
-                default:
-                    Console.WriteLine("------------------>Krivi odabir<------------------------------------");
-                    IzbornikRadSPruzateljimaUsluga();
-                    break;
-            }
-        }
 
-        private void IzbrisiPruzateljaUsluge()
-        {
-            PrikaziSvePruzateljeUsluga();
-            PruzateljiUsluga.RemoveAt(V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za brisanje: *.*.*.--->") -1);
-            IzbornikRadSPruzateljimaUsluga();
-        }
+
+  
 
         private void UrediPruzateljaUsluge()
         {
@@ -143,16 +98,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             IzbornikRadSPruzateljimaUsluga();
         }
 
-        private void DodajNovogPruzateljaUsluga()
-        {
-            PruzateljiUsluga.Add(new PruzateljUsluge()
-            {
-                Sifra = V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Unesi šifru pružatelja usluge:  .*.*.*.*.*.*.--->"),
-                Ime = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime pružatelja usluge:  .*.*.*.*.*.*.*.--->"),
-                Prezime = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime pružatelja usluge:  .*.*.*.*.*.--->"),
-                Adresa = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime pružatelja usluge:  *.*.*.*.*.*.--->")
-            });
-
+ 
 
 
 
@@ -160,35 +106,9 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             IzbornikRadSPruzateljimaUsluga();
         }
 
-        private void PrikaziSvePruzateljeUsluga()
-        {
-            var i = 0;
-            PruzateljiUsluga.ForEach(p => {
-                Console.WriteLine(++i + ". " + p);
-            });
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*"); ;
-        }
-
-        private void IzbornikRadSKlijentima()
-        {
-          
-                Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-                Console.WriteLine("------------>1 ->Prikaži sve klijente------------------------------");
-                Console.WriteLine("------------>2 ->Dodaj klijenta<-----------------------------------");
-                Console.WriteLine("------------>3 ->Uredi klijenta<-----------------------------------");
-                Console.WriteLine("------------>4 ->Izbriši klijenta<---------------------------------");
-                Console.WriteLine("------------>5 ->Povratak na glavni izbornik<----------------------");
-                Console.WriteLine("-------------------------------------------------------------------");
-                OdabirStavkeIzbornikKlijenta();
-            }
 
 
-        private void IzbrisiKlijenta()
-        {
-            PrikaziSveKlijente();
-            Usluge.RemoveAt(V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi klijenta za brisanje: .*.*.*.*.*.*.*.--->") -1);
-            IzbornikRadSUslugama();
-        }
+
 
      
 
@@ -202,111 +122,6 @@ namespace UcenjeCS.V02KonzolnaAplikacija
 
         }
 
-        private void DodajNovogKlijenta()
-        {
-            Klijenti.Add(new Klijent() { 
-                Sifra = V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Unesi šifru klijenta:  *.*.*.*.*.*.*.*.*.*.*.--->"), 
-                ImeKlijenta = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime klijenta:  *.*.*.*.*.*.*.*.*.*.*.*.--->"), 
-                Pasmina = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi pasminu klijenta:  *.*.*.*.*.*.*.*.*.*.--->"), 
-                Napomena = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi napomenu:  *.*..*.*.*.*.*.*.*.*.*.*.*.*--->"), 
-                ImeVlasnika = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime vlasnika:  .*.*.*.*.*.*.*.*.*.*.*.*--->"), 
-                PrezimeVlasnika = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime vlasnika:  *.*.*.*.*.*.*.*.*.*.--->") 
-            });
-
-
-
-
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            IzbornikRadSKlijentima();
-        }
-
-        private void IzbornikRadSUslugama()
-        {
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            Console.WriteLine("------------>1 ->Prikaži sve usluge<-------------------------------");
-            Console.WriteLine("------------>2 ->Dodaj uslugu<-------------------------------------");
-            Console.WriteLine("------------>3 ->Uredi uslugu<-------------------------------------");
-            Console.WriteLine("------------>4 ->Izbriši uslugu<-----------------------------------");
-            Console.WriteLine("------------>5 ->Povratak na glavni izbornik<----------------------");
-            Console.WriteLine("-------------------------------------------------------------------");
-            OdabirStavkeIzbornikUsluge();
-        }
-
-        private void OdabirStavkeIzbornikUsluge()
-        {
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            Console.WriteLine("*.*.*.*.*.*.*.*IZBORNIK - RAD S USLUGAMA*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            switch (V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.Odaberi stavku izbornika:  .*.*.*.*.*.*.*.*.*.*.--->"))
-            {
-                case 1:
-                    Console.WriteLine("------------>1 ->Prikaži sve usluge<-------------------------------"); ;
-                    PrikaziSveUsluge();
-                    IzbornikRadSUslugama();
-                    break;
-                case 2:
-                    Console.WriteLine("------------>2 ->Dodaj uslugu<-------------------------------------");
-                    DodajNovuUslugu();
-                    break;
-                case 3:
-                    Console.WriteLine("------------>3 ->Uredi uslugu<-------------------------------------");
-                    UrediUslugu();
-                    break;
-                case 4:
-                    Console.WriteLine("------------>4 ->Izbriši uslugu<-----------------------------------");
-                    IzbrisiUslugu();
-                    break;
-                case 5:
-                    Izbornik();
-                    break;
-                default:
-                    Console.WriteLine("------------------>Krivi odabir<------------------------------------");
-                    IzbornikRadSUslugama();
-                    break;
-            }
-        }
-
-        private void IzbrisiUslugu()
-        {
-            PrikaziSveUsluge();
-            Usluge.RemoveAt(V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi uslugu za brisanje: .*.*.*.*.*.*.*.*.--->") -1);
-            IzbornikRadSUslugama();
-        }
-
-        private void UrediUslugu()
-        {
-            PrikaziSveUsluge();
-            var u = Usluge[V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi uslugu za promjenu: .*.*.*.*.*.*.*.*.--->") - 1];
-            u.Sifra = V02KonzolnaAplikacija.Pomocno.UcitajInt(u.Sifra +  "*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru: .*.*.*.*.*.*.*.*.*.--->");
-            u.Naziv = V02KonzolnaAplikacija.Pomocno.UcitajString(u.Naziv +"*.*.*.*.*.*.*.*.*Unesi promijenjeni naziv: .*.*.*.*.*.*.*.*.*.--->");
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            IzbornikRadSUslugama();
-
-        }
-
-        private void DodajNovuUslugu()
-        {
-            Usluge.Add(new Usluga()
-            {
-                Sifra = V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Unesi šifru usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->"),
-                Naziv = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi naziv usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->")
-            });
-
-            
-
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            IzbornikRadSUslugama();
-        }
-
-        private void PrikaziSveUsluge()
-        {
-            var i = 0;
-            Usluge.ForEach(u => {
-                Console.WriteLine(++i + ". " + u);
-            });
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-
-        }
 
 
         private void PozdravnaPoruka()

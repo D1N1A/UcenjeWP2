@@ -15,6 +15,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija.Model
         public string ImeVlasnika { get; set; }
         public string PrezimeVlasnika { get; set; }
         public List<StatusRezervacije> StatusiRezervacija { get; set; }
+        public Usluga Usluga { get; set; }
 
         public override string ToString()
         {

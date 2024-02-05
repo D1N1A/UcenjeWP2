@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UcenjeCS.E15KonzolnaAplikacija;
 using UcenjeCS.V02KonzolnaAplikacija.Model;
 
 namespace UcenjeCS.V02KonzolnaAplikacija
@@ -75,8 +76,20 @@ namespace UcenjeCS.V02KonzolnaAplikacija
                 "Unos obavezan");
             k.PrezimeVlasnika = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime vlasnika (" + k.PrezimeVlasnika + ":  *.*.*.*.*.*.*.*.*.*.--->",
                 "Unos obavezan");
-            k.Usluga = 
+            k.Usluga = PostaviUslugu();
+  
 
+
+
+        }
+
+
+
+private Usluga PostaviUslugu()
+        {
+            Izbornik.ObradaUsluga.PrikaziSveUsluge();
+            int index = Pomocno.ucitajBrojRaspon("Odaberi redni broj usluge: ", "Nije dobar odabir", 1, Izbornik.ObradaUsluga.Usluge.Count());
+            return Izbornik.ObradaUsluga.Usluge[index - 1];
         }
 
         private void IzbrisiKlijenta()

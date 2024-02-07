@@ -20,7 +20,8 @@ namespace UcenjeCS.E15KonzolnaAplikacija
             Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
             Console.WriteLine("*.*.*.*.*.*.*.*IZBORNIK - RAD S USLUGAMA*.*.*.*.*.*.*.*.*.*.*.*.*.*");
             Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            switch (Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.Odaberi stavku izbornika:  .*.*.*.*.*.*.*.*.*.*.--->",))
+            switch (Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.Odaberi stavku izbornika:  .*.*.*.*.*.*.*.*.*.*.--->",
+                "Odabir mora biti 1-5", 1, 5))
             {
                 case 1:
                     Console.WriteLine("------------>1 ->Prikaži sve usluge<-------------------------------"); ;
@@ -51,28 +52,38 @@ namespace UcenjeCS.E15KonzolnaAplikacija
         private void UrediUslugu()
         {
             PrikaziSveUsluge();
-            var u = Usluge[Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Odaberi uslugu za promjenu: .*.*.*.*.*.*.*.*.--->",) - 1];
-            u.Sifra = Pomocno.ucitajCijeliBroj(u.Sifra +  "*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru: .*.*.*.*.*.*.*.*.*.--->",);
-            u.Naziv = Pomocno.ucitajCijeliBroj(u.Naziv +"*.*.*.*.*.*.*.*.*Unesi promijenjeni naziv: .*.*.*.*.*.*.*.*.*.--->",);
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            PrikaziIzbornik();
+            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi uslugu za promjenu: .*.*.*.*.*.*.*.*.--->", "Nije dobar odabir", 1, Usluge.Count());
+            var u = Usluge[index - 1];
+            u.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru (" + u.Sifra + "): .*.*.*.*.*.*.*.*.*.--->",
+                "Unos mora biti pozitivni cijeli broj");
+            u.Naziv = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjeni naziv (" + u.Naziv + "): .*.*.*.*.*.*.*.*.*.--->",
+                "Unos obavezan");
+  
 
         }
 
         private void IzbrisiUslugu()
         {
             PrikaziSveUsluge();
-            Usluge.RemoveAt(V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi uslugu za brisanje: .*.*.*.*.*.*.*.*.--->") -1);
-            PrikaziIzbornik();
+            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi uslugu za brisanje: .*.*.*.*.*.*.*.*.--->", "Nije dobar odabir", 1, Usluge.Count());
+            Usluge.RemoveAt(index-1);
+
+
+            
         }
 
         private void DodajNovuUslugu()
         {
-            Usluge.Add(new Usluga()
-            {
-                Sifra = V02KonzolnaAplikacija.Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Unesi šifru usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->"),
-                Naziv = V02KonzolnaAplikacija.Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi naziv usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->")
-            });
+
+
+
+            var u = new Usluga();
+            u.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi šifru usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->",
+                "Unos mora biti pozitivni cijeli broj");
+            u.Naziv = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi naziv usluge:  *.*.*.*.*.*.*.*.*.*.*.*.--->",
+                "Unos obavezan");
+            Usluge.Add(u);
+
         }
 
         public void PrikaziSveUsluge()

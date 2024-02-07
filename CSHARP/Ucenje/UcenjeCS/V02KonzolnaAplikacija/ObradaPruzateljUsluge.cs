@@ -60,13 +60,18 @@ namespace UcenjeCS.V02KonzolnaAplikacija
 
         private void UrediPruzateljaUsluge()
         {
+
             PrikaziSvePruzateljeUsluga();
-            int index = Pomocno.ucitajBrojRaspon("Odaberi redni broj smjera: ", "Nije dobar odabir", 1, PruzateljiUsluga.Count());
+            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za promjenu: .*.*.*.--->", "Nije dobar odabir", 1, PruzateljiUsluga.Count());
             var p = PruzateljiUsluga[index - 1];
-            p.Sifra = Pomocno.ucitajCijeliBroj(p.Sifra +  "*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru: .*.*.*.*.*.*.*.*.*.--->",);
-            p.Ime = Pomocno.UcitajString(p.Ime + "*.*.*.*.*.*.*.*.*Unesi promijenjeno ime pružatelja usluge: .*.--->",);
-            p.Prezime = Pomocno.UcitajString(p.Prezime + "*.*.*.*.*.*.*.*.*Unesi promijenjeno prezime pružatelja usluge:--->",);
-            p.Adresa = Pomocno.UcitajString(p.Adresa +"*.*.*.*.*.*.*.*.*Unesi promijenjenu adresu pružatelja usluge: --->",);
+            p.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru (" + p.Sifra + "): .*.*.*.*.*.*.*.*.*.--->",
+                "Unos mora biti pozitivni cijeli broj");
+            p.Fotografija = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu fotografiju (" + p.Fotografija + "): *.--->",
+                "Unos obavezan");
+            p.Adresa = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu adresu (" + p.Adresa + "): *.*.*.--->",
+               "Unos obavezan");
+            p.Email = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu eMail (" + p.Email + "): .*.*.*.--->",
+             "Unos obavezan");
 
         }
 
@@ -79,17 +84,22 @@ namespace UcenjeCS.V02KonzolnaAplikacija
 
         private void DodajNovogPruzateljaUsluga()
         {
-            PruzateljiUsluga.Add(new PruzateljUsluge()
-            {
-                Sifra = Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Unesi šifru pružatelja usluge:  .*.*.*.*.*.*.--->"),
-                Ime = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime pružatelja usluge:  .*.*.*.*.*.*.*.--->"),
-                Prezime = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime pružatelja usluge:  .*.*.*.*.*.--->"),
-                Adresa = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime pružatelja usluge:  *.*.*.*.*.*.--->")
-            });
+            PrikaziSvePruzateljeUsluga();
+            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za promjenu: .*.*.*.--->", "Nije dobar odabir", 1, PruzateljiUsluga.Count());
+            var p = PruzateljiUsluga[index - 1];
+            p.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru (" + p.Sifra + "): .*.*.*.*.*.*.*.*.*.--->",
+                "Unos mora biti pozitivni cijeli broj");
+            p.Fotografija = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu fotografiju (" + p.Fotografija + "): *.--->",
+                "Unos obavezan");
+            p.Adresa = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu adresu (" + p.Adresa + "): *.*.*.--->",
+               "Unos obavezan");
+            p.Email = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu eMail (" + p.Email + "): .*.*.*.--->",
+             "Unos obavezan");
+
         }
 
 
-            private void PrikaziSvePruzateljeUsluga()
+        private void PrikaziSvePruzateljeUsluga()
             {
                 var i = 0;
                 PruzateljiUsluga.ForEach(p => {

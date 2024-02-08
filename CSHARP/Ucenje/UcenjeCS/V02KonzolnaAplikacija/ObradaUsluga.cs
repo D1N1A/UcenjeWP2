@@ -12,7 +12,7 @@ namespace UcenjeCS.E15KonzolnaAplikacija
 
         public ObradaUsluga()
         {
-            Usluge = new List<Usluga>();
+          
         }
 
         public void PrikaziIzbornik ()

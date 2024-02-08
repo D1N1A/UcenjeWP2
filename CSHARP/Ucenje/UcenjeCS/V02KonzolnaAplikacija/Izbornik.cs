@@ -13,9 +13,9 @@ namespace UcenjeCS.V02KonzolnaAplikacija
         public ObradaUsluga ObradaUsluga { get; }
         public ObradaKlijent ObradaKlijent { get; }
 
-        public ObradaPruzateljUsluge PruzateljUsluge { get; }
+        public ObradaPruzateljUsluge ObradaPruzateljUsluge { get; }
 
-        public ObradaStatusRezervacije StatusRezervacije { get; }
+        public ObradaStatusRezervacije ObradaStatusRezervacije { get; }
 
 
     
@@ -25,7 +25,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
         {
             Pomocno.dev = true;
             ObradaUsluga = new ObradaUsluga();
-            ObradaKlijent = new ObradaPolaznik();
+            ObradaKlijent = new ObradaKlijent();
             ObradaPruzateljUsluge = new ObradaPruzateljUsluge();
             ObradaStatusRezervacije = new ObradaStatusRezervacije();
             PozdravnaPoruka();

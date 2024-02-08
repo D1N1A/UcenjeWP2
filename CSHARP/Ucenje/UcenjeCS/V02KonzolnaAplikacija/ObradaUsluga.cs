@@ -58,6 +58,7 @@ namespace UcenjeCS.E15KonzolnaAplikacija
                 "Unos mora biti pozitivni cijeli broj");
             u.Naziv = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjeni naziv (" + u.Naziv + "): .*.*.*.*.*.*.*.*.*.--->",
                 "Unos obavezan");
+           
   
 
         }

@@ -38,6 +38,12 @@ using UcenjeCS;
 //new UcenjeCS.E15KonzolnaAplikacija.Program(); 
 //nije više statična metoda na klasi nego radim novu instancu klase a to je objekt koji nije ničem dodijeljen
 
-new UcenjeCS.V02KonzolnaAplikacija.Izbornik();
+//new UcenjeCS.V02KonzolnaAplikacija.Izbornik();
+
+//new UcenjeCS.E16Lambda.Program();
+
+//new UcenjeCS.E17Delegati.Program();
+
+new UcenjeCS.E18Ekstenzije.Program();
 
 

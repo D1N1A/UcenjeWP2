@@ -66,7 +66,6 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             var k = Klijenti[index - 1];
             k.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi šifru klijenta (" + k.Sifra + ":  *.*.*.*.*.*.*.*.*.*.*.--->",
                 "Unos mora biti pozitivni cijeli broj");
-            k.Usluga = PostaviUslugu();
             k.ImeKlijenta = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime klijenta (" + k.ImeKlijenta + ":  *.*.*.*.*.*.*.*.*.*.*.*.--->",
                 "Unos obavezan");
             k.Pasmina = Pomocno.UcitajString("\"*.*.*.*.*.*.*.*.*Unesi pasminu klijenta (" + k.Pasmina + ":  *.*.*.*.*.*.*.*.*.*.--->",
@@ -77,7 +76,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
                 "Unos obavezan");
             k.PrezimeVlasnika = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime vlasnika (" + k.PrezimeVlasnika + ":  *.*.*.*.*.*.*.*.*.*.--->",
                 "Unos obavezan");
-            k.StatusRezervacije = StatusRezervacije();
+            k.Usluga = PostaviUslugu();
   
 
 
@@ -106,7 +105,6 @@ private Usluga PostaviUslugu()
             var k = new Klijent();
             k.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi šifru klijenta:  *.*.*.*.*.*.*.*.*.*.*.--->",
                 "Unos mora biti pozitivni cijeli broj");
-            k.Usluga = PostaviUslugu();
             k.ImeKlijenta = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi ime klijenta:  *.*.*.*.*.*.*.*.*.*.*.*.--->",
                     "Unos obavezan");
             k.Pasmina = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi pasminu klijenta:  *.*.*.*.*.*.*.*.*.*.--->",
@@ -115,7 +113,6 @@ private Usluga PostaviUslugu()
                 "Unos obavezan");
             k.PrezimeVlasnika = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi prezime vlasnika:  *.*.*.*.*.*.*.*.*.*.--->",
                 "Unos obavezan");
-            k.StatusRezervacije = PostaviStatusRezervacije();
             Klijenti.Add(k);
 
         }
@@ -128,20 +125,6 @@ private Usluga PostaviUslugu()
             });
             Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
 
-        }
-
-        private Usluga PostaviUslugu()
-        {
-            Izbornik.ObradaUsluga.PrikaziSveUsluge();
-            int index = Pomocno.ucitajBrojRaspon("Odaberi redni broj usluge: ", "Nije dobar odabir", 1, Izbornik.ObradaUsluga.Usluge.Count());
-            return Izbornik.ObradaUsluga.Usluge[index - 1];
-        }
-
-        private Usluga PostaviStatusRezervacije()
-        {
-            Izbornik.ObradaStatusRezervacije.PrikaziSveStatuseRezervacija();
-            int index = Pomocno.ucitajBrojRaspon("Odaberi redni broj statusa rezervacije: ", "Nije dobar odabir", 1, Izbornik.ObradaStatusRezervacije.StatusiRezervacija.Count());
-            return Izbornik.ObradaStatusRezervacije.StatusiRezervacija[index - 1];
         }
 
     }

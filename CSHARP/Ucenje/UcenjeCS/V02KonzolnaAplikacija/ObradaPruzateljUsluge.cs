@@ -66,7 +66,6 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             var p = PruzateljiUsluga[index - 1];
             p.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru (" + p.Sifra + "): .*.*.*.*.*.*.*.*.*.--->",
                 "Unos mora biti pozitivni cijeli broj");
-            p.Usluga = PostaviUslugu();
             p.Fotografija = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu fotografiju (" + p.Fotografija + "): *.--->",
                 "Unos obavezan");
             p.Adresa = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu adresu (" + p.Adresa + "): *.*.*.--->",
@@ -74,14 +73,13 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             p.Email = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu eMail (" + p.Email + "): .*.*.*.--->",
              "Unos obavezan");
 
-
         }
 
         private void IzbrisiPruzateljaUsluge()
         {
             PrikaziSvePruzateljeUsluga();
-            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za brisanje: *.*.*.--->", "Nije dobar odabir", 1, PruzateljiUsluga.Count());
-            PruzateljiUsluga.RemoveAt(index-1);
+            PruzateljiUsluga.RemoveAt(Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za brisanje: *.*.*.--->") -1);
+
         }
 
         private void DodajNovogPruzateljaUsluga()
@@ -91,14 +89,12 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             var p = PruzateljiUsluga[index - 1];
             p.Sifra = Pomocno.ucitajCijeliBroj("*.*.*.*.*.*.*.*.*Unesi promijenjenu šifru (" + p.Sifra + "): .*.*.*.*.*.*.*.*.*.--->",
                 "Unos mora biti pozitivni cijeli broj");
-            p.Usluga = PostaviUslugu();
             p.Fotografija = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu fotografiju (" + p.Fotografija + "): *.--->",
                 "Unos obavezan");
             p.Adresa = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu adresu (" + p.Adresa + "): *.*.*.--->",
                "Unos obavezan");
             p.Email = Pomocno.UcitajString("*.*.*.*.*.*.*.*.*Unesi promijenjenu eMail (" + p.Email + "): .*.*.*.--->",
              "Unos obavezan");
-
 
         }
 
@@ -113,12 +109,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             }
 
 
-        private Usluga PostaviUslugu()
-        {
-            Izbornik.ObradaUsluga.PrikaziSveUsluge();
-            int index = Pomocno.ucitajBrojRaspon("Odaberi redni broj usluge: ", "Nije dobar odabir", 1, Izbornik.ObradaUsluga.Usluge.Count());
-            return Izbornik.ObradaUsluga.Usluge[index - 1];
-        }
 
-    }
+
+        }
     }

@@ -25,9 +25,15 @@ namespace UcenjeCS.V02KonzolnaAplikacija
         {
             Pomocno.dev = true;
             ObradaUsluga = new ObradaUsluga();
+<<<<<<< HEAD
             ObradaKlijent = new ObradaKlijent();
             ObradaPruzateljUsluge ();
             ObradaStatusRezervacije();
+=======
+            ObradaKlijent = new ObradaPolaznik();
+            ObradaPruzateljUsluge = new ObradaPruzateljUsluge();
+            ObradaStatusRezervacije = new ObradaStatusRezervacije();
+>>>>>>> parent of 74e3592 (...)
             PozdravnaPoruka();
             PrikaziIzbornik();
 

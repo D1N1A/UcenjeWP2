@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UcenjeCS.E15KonzolnaAplikacija;
-using UcenjeCS.V02KonzolnaAplikacija.Model;
 
 namespace UcenjeCS.V02KonzolnaAplikacija
 {
@@ -12,31 +7,18 @@ namespace UcenjeCS.V02KonzolnaAplikacija
     {
         public ObradaUsluga ObradaUsluga { get; }
         public ObradaKlijent ObradaKlijent { get; }
-
-        public ObradaPruzateljUsluge PruzateljUsluge { get; }
-
-        public ObradaStatusRezervacije StatusRezervacije { get; }
-
-
-    
-
+        public ObradaPruzateljUsluge ObradaPruzateljUsluge { get; }
+        public ObradaStatusRezervacije ObradaStatusRezervacije { get; }
 
         public Izbornik()
         {
             Pomocno.dev = true;
             ObradaUsluga = new ObradaUsluga();
-<<<<<<< HEAD
             ObradaKlijent = new ObradaKlijent();
-            ObradaPruzateljUsluge ();
-            ObradaStatusRezervacije();
-=======
-            ObradaKlijent = new ObradaPolaznik();
             ObradaPruzateljUsluge = new ObradaPruzateljUsluge();
             ObradaStatusRezervacije = new ObradaStatusRezervacije();
->>>>>>> parent of 74e3592 (...)
             PozdravnaPoruka();
             PrikaziIzbornik();
-
         }
 
         private void PozdravnaPoruka()
@@ -48,8 +30,7 @@ namespace UcenjeCS.V02KonzolnaAplikacija
 
         private void PrikaziIzbornik()
         {
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*IZBORNIK.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
+            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*IZBORNIK.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
             Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*");
             Console.WriteLine("------------>1 ->Rad s uslugama<-----------------------------------");
             Console.WriteLine("------------>2 ->Rad s klijentima<---------------------------------");
@@ -58,52 +39,38 @@ namespace UcenjeCS.V02KonzolnaAplikacija
             Console.WriteLine("------------>5 ->Izlaz iz programa<--------------------------------");
             Console.WriteLine("-------------------------------------------------------------------");
             OdabirStavkePocetnogIzbornika();
-
-
         }
 
         private void OdabirStavkePocetnogIzbornika()
         {
-            Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*Unesi izbor: *.*.*.*.*.*.*.*.*.*.*.*.*.*.--->");
-            Console.WriteLine("------------>1 ->Rad s uslugama<-----------------------------------");
-            Console.WriteLine("------------>2 ->Rad s klijentima<---------------------------------");
-            Console.WriteLine("------------>3 ->Rad s pružateljima usluga<------------------------");
-            Console.WriteLine("------------>4 ->Rad sa statusima rezervacija----------------------");
-
-
-            switch (Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*.*.*Unesi izbor: *.*.*.*.*.*.*.*.*.*.*.*.*.*.--->",
-              "Odabir mora biti 1 - 4.", 1, 4))
+            int izbor;
+            do
             {
-                case 1:
-                    ObradaUsluga.PrikaziIzbornik();
-                    PrikaziIzbornik();
-                    break;
-                case 2:
-                    ObradaKlijent.PrikaziIzbornik();
-                    PrikaziIzbornik();
-                    break;
-                case 3:
-                    ObradaPruzateljUsluge.PrikaziIzbornik();
-                    PrikaziIzbornik();
-                    break;
-                case 4:
-                    ObradaStatusRezervacije.PrikaziIzbornik();
-                    break;
-                case 5:
-                    Console.WriteLine("------------>5 ->Izlaz iz programa<--------------------------------");
-                    Console.WriteLine("-------------------------------------------------------------------");
-                    break;
+                Console.WriteLine("*.*.*.*.*.*.*.*.*.*.*Unesi izbor: *.*.*.*.*.*.*.*.*.*.*.*.*.*.--->");
+                izbor = Pomocno.ucitajBrojRaspon("Odabir mora biti 1 - 5.","Pogrešan odabir", 1, 5);
 
-
-            }
-
+                switch (izbor)
+                {
+                    case 1:
+                        ObradaUsluga.PrikaziIzbornik();
+                        break;
+                    case 2:
+                        ObradaKlijent.PrikaziIzbornik();
+                        break;
+                    case 3:
+                        ObradaPruzateljUsluge.PrikaziIzbornik();
+                        break;
+                    case 4:
+                        ObradaStatusRezervacije.PrikaziIzbornik();
+                        break;
+                    case 5:
+                        Console.WriteLine("Izlaz iz programa.");
+                        break;
+                    default:
+                        Console.WriteLine("Neispravan unos. Unesite ponovno.");
+                        break;
+                }
+            } while (izbor != 5);
         }
-
     }
-
 }
-
-
-
-
-        

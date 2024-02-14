@@ -76,9 +76,12 @@ namespace UcenjeCS.V02KonzolnaAplikacija
         }
 
         private void IzbrisiPruzateljaUsluge()
-        {
+        { 
             PrikaziSvePruzateljeUsluga();
-            PruzateljiUsluga.RemoveAt(Pomocno.UcitajInt("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za brisanje: *.*.*.--->") -1);
+            int index = Pomocno.ucitajBrojRaspon("*.*.*.*.*.*.*.*.*Odaberi pružatelja usluge za brisanje: *.*.*.--->", "Nije dobar odabir", 1,PruzateljiUsluga.Count());
+            PruzateljiUsluga.RemoveAt(index-1);
+
+
 
         }
 

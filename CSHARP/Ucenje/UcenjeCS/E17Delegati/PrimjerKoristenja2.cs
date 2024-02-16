@@ -8,15 +8,17 @@ namespace UcenjeCS.E17Delegati
 {
     internal class PrimjerKoristenja2
     {
+
         public PrimjerKoristenja2()
         {
             var os = new ObradaSmjer();
-            os.IspisSmjer(MojIspisUOvojKlasi);
+            os.IspisSmjer(NijeBitno);
         }
 
-        private void NijeBaitno (Smjer s)
+        private void NijeBitno(Smjer s)
         {
             Console.WriteLine("2 " + s.Naziv);
         }
+
     }
 }

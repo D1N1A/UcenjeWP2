@@ -10,9 +10,13 @@ namespace UslugeZaKucneLjubimce.Models
         /// <summary>
         /// Naziv u bazi
         /// </summary>
-        [Required(ErrorMessage ="Naziv statusa obavezan")]
-        public Boolean Naziv { get; set; }
+        [Required(ErrorMessage ="Unesite naziv usluge")]
+        public string? Naziv { get; set; }
+        /// <summary>
+        /// Potrebno je unijeti boju
+        /// </summary>
         [Required(ErrorMessage = "Boja statusa obavezna")]
-        public string? Boja { get; set; }
+       
+        public string Boja { get; set; }
     }
 }

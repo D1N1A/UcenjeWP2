@@ -1,5 +1,5 @@
 ﻿
-//using UcenjeCS;
+using UcenjeCS;
 
 //E01UlazIzlaz.Izvedi();
 
@@ -44,6 +44,6 @@
 
 //new UcenjeCS.E17Delegati.Program();
 
-//new UcenjeCS.E18Ekstenzije.Program();
+new UcenjeCS.E18Ekstenzije.Program();
 
 

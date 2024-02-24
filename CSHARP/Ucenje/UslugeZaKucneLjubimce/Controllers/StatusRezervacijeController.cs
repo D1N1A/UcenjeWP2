@@ -6,11 +6,11 @@ using UslugeZaKucneLjubimce.Models;
 namespace UslugeZaKucneLjubimce.Controllers
 {
     /// <summary>
-    /// Namjenjeno za CRUD operacije nad entitetom smjer u bazi
+    /// Namjenjeno za CRUD operacije nad entitetom status rezervacije u bazi
     /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class SmjerController : ControllerBase
+    public class StatusRezervacijeController : ControllerBase
     {
         /// <summary>
         /// Kontest za rad s bazom koji će biti postavljen s pomoću Dependecy Injection-om
@@ -21,21 +21,21 @@ namespace UslugeZaKucneLjubimce.Controllers
         /// pomoću DI principa
         /// </summary>
         /// <param name="context"></param>
-        public SmjerController(KucniLjubimciContext context)
+        public StatusRezervacijeController(KucniLjubimciContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Dohvaća sve smjerove iz baze
+        /// Dohvaća sve statuse rezervacije iz baze
         /// </summary>
         /// <remarks>
         /// Primjer upita
         /// 
-        ///    GET api/v1/Smjer
+        ///    GET api/v1/StatusRezervacije
         ///    
         /// </remarks>
-        /// <returns>Smjerovi u bazi</returns>
+        /// <returns>Statusi rezervacije u bazi</returns>
         /// <response code="200">Sve OK, ako nema podataka content-length: 0 </response>
         /// <response code="400">Zahtjev nije valjan</response>
         /// <response code="503">Baza na koju se spajam nije dostupna</response>
@@ -64,17 +64,17 @@ namespace UslugeZaKucneLjubimce.Controllers
         }
 
         /// <summary>
-        /// Dodaje novi smjer u bazu
+        /// Dodaje novi status rezervacije u bazu
         /// </summary>
         /// <remarks>
-        ///     POST api/v1/Smjer
+        ///     POST api/v1/StatusRezervacije
         ///     {naziv: "Primjer naziva"}
         /// </remarks>
-        /// <param name="smjer">Smjer za unijeti u JSON formatu</param>
+        /// <param name="status rezervacije">Status rezervacije za unijeti u JSON formatu</param>
         /// <response code="201">Kreirano</response>
         /// <response code="400">Zahtjev nije valjan (BadRequest)</response> 
         /// <response code="503">Baza nedostupna iz razno raznih razloga</response> 
-        /// <returns>Smjer s šifrom koju je dala baza</returns>
+        /// <returns>Status rezervacije s šifrom koju je dala baza</returns>
         [HttpPost]
         public IActionResult Post(StatusRezervacije statusRezervacije)
         {
@@ -96,28 +96,29 @@ namespace UslugeZaKucneLjubimce.Controllers
         }
 
         /// <summary>
-        /// Mijenja podatke postojećeg smjera u bazi
+        /// Mijenja podatke postojećeg statusa rezervacije u bazi
         /// </summary>
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    PUT api/v1/smjer/1
+        ///    PUT api/v1/statusRezervacije/1
         ///
         /// {
         ///  "sifra": 0,
         ///  "naziv": "Novi naziv",
         ///  "boja": "crvena",
-       
         /// }
         ///
         /// </remarks>
-        /// <param name="sifra">Šifra smjera koji se mijenja</param>  
-        /// <param name="smjer">Smjer za unijeti u JSON formatu</param>  
-        /// <returns>Svi poslani podaci od smjera koji su spremljeni u bazi</returns>
+        /// <param name="sifra">Šifra statusa rezervacije koji se mijenja</param>  
+        /// <param name="smjer">Status rezervacije za unijeti u JSON formatu</param>  
+        /// <returns>Svi poslani podaci od statusa rezervacije koji su spremljeni u bazi</returns>
         /// <response code="200">Sve je u redu</response>
-        /// <response code="204">Nema u bazi smjera kojeg želimo promijeniti</response>
+        /// <response code="204">Nema u bazi statusa rezervacije kojeg želimo promijeniti</response>
         /// <response code="415">Nismo poslali JSON</response> 
         /// <response code="503">Baza nedostupna</response> 
+
+        
         [HttpPut]
         [Route("{sifra:int}")]
         public IActionResult Put(int sifra, StatusRezervacije statusRezervacije)

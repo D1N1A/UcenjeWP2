@@ -25,8 +25,14 @@ function NavBar() {
           <Nav className="me-auto">
             
             <NavDropdown title="Programi" id="basic-nav-dropdown">
-              <NavDropdown.Item>Smjerovi</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item 
+                onClick={()=>navigate(RoutesNames.SMJEROVI_PREGLED)}
+              >
+                Smjerovi
+              </NavDropdown.Item>
+              <NavDropdown.Item 
+              onClick={()=>navigate(RoutesNames.PREDAVACI_PREGLED)}
+              >
                 Predavači
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
